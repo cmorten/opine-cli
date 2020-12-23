@@ -9,7 +9,6 @@
     "./opine-cli.ts",
     "./deps.ts",
     "./version.ts",
-    "./lock.json",
     "./src/**/*",
     "./README.md",
     "./LICENSE.md",
