@@ -21,13 +21,13 @@ fmt-check:
 	@deno fmt --check $(FILES_TO_FORMAT)
 
 install:
-	@deno install -f -q --allow-read=./ --allow-write --unstable ./opine-cli.ts
+	@deno install -f -q --allow-read --allow-write --unstable ./opine-cli.ts
 
 lint:
 	@deno lint --unstable $(FILES_TO_FORMAT)
 
 test:
-	@deno test --allow-run --allow-read=./ --allow-write ./test/
+	@deno test --allow-run --allow-read --allow-write ./test/
 
 typedoc:
 	@rm -rf docs

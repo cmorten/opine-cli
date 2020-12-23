@@ -1,8 +1,6 @@
 import {
   Command,
   Confirm,
-  dirname,
-  fromFileUrl,
   join,
   minimatch,
   renderFileToString,
@@ -13,7 +11,7 @@ import { VERSION } from "../version.ts";
 
 const MODE_0666 = parseInt("0666", 8);
 const MODE_0755 = parseInt("0755", 8);
-const __dirname = fromFileUrl(dirname(import.meta.url));
+const __dirname = new URL(".", import.meta.url).pathname;
 const TEMPLATE_DIR = join(__dirname, "templates");
 
 const program = await new Command()
