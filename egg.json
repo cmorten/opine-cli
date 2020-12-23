@@ -4,6 +4,7 @@
   "version": "0.1.0",
   "repository": "https://github.com/cmorten/opine-cli",
   "stable": true,
+  "entry": "./opine-cli.ts",
   "files": [
     "./opine-cli.ts",
     "./deps.ts",
