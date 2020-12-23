@@ -1,9 +1,6 @@
-.PHONY: build ci deps doc fmt fmt-check lint lock test typedoc
+.PHONY: build ci deps doc fmt fmt-check install lint test typedoc
 
-FILES_TO_FORMAT = ./src ./test ./examples deps.ts mod.ts version.ts
-
-build:
-	@deno run --allow-net="deno.land" --reload mod.ts
+FILES_TO_FORMAT = ./src ./test ./examples deps.ts opine-cli.ts version.ts
 
 ci:
 	@make fmt-check
@@ -14,7 +11,10 @@ deps:
 	@npm install -g typescript typedoc
 
 doc:
-	@deno doc ./mod.ts
+	@deno doc ./opine-cli.ts
+
+install:
+	@deno install -f -q --allow-read=./ --allow-write --unstable ./opine-cli.ts
 
 fmt:
 	@deno fmt $(FILES_TO_FORMAT)
@@ -25,11 +25,8 @@ fmt-check:
 lint:
 	@deno lint --unstable $(FILES_TO_FORMAT)
 
-lock:
-	@deno run --allow-net="deno.land" --lock=lock.json --lock-write --reload mod.ts
-
 test:
-	@deno test --allow-net --allow-read ./test/units/
+	@deno test ./test/
 
 typedoc:
 	@rm -rf docs

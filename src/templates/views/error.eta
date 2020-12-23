@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= it.title %></title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <h1><%= it.message %></h1>
+    <h2><%= it.error.status %></h2>
+    <pre><%= it.error.stack %></pre>
+  </body>
+</html>

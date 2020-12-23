@@ -1,18 +1,18 @@
 {
-    "name": "opineCli",
-    "description": "Opine's application generator.",
-    "version": "0.1.0",
-    "repository": "https://github.com/cmorten/opine-cli",
-    "stable": true,
-    "files": [
-        "./mod.ts",
-        "./deps.ts",
-        "./version.ts",
-        "./lock.json",
-        "./src/**/*",
-        "./README.md",
-        "./LICENSE.md",
-        "./EXPRESS_GENERATOR_LICENSE.md",
-        "./.github/CHANGELOG.md"
-    ]
+  "name": "opineCli",
+  "description": "Opine's application generator.",
+  "version": "0.1.0",
+  "repository": "https://github.com/cmorten/opine-cli",
+  "stable": true,
+  "files": [
+    "./opine-cli.ts",
+    "./deps.ts",
+    "./version.ts",
+    "./lock.json",
+    "./src/**/*",
+    "./README.md",
+    "./LICENSE.md",
+    "./EXPRESS_GENERATOR_LICENSE.md",
+    "./.github/CHANGELOG.md"
+  ]
 }

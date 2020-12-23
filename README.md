@@ -7,7 +7,7 @@
 <p align="center">
    <a href="https://github.com/cmorten/opine-cli/tags/"><img src="https://img.shields.io/github/tag/cmorten/opine-cli" alt="Current version" /></a>
    <img src="https://github.com/cmorten/opine-cli/workflows/Test/badge.svg" alt="Current test status" />
-   <a href="https://doc.deno.land/https/deno.land/x/opineCli/mod.ts"><img src="https://doc.deno.land/badge.svg" alt="Deno docs" /></a>
+   <a href="https://doc.deno.land/https/deno.land/x/opineCli/opine-cli.ts"><img src="https://doc.deno.land/badge.svg" alt="Deno docs" /></a>
    <a href="http://makeapullrequest.com"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs are welcome" /></a>
    <a href="https://github.com/cmorten/opine-cli/issues/"><img src="https://img.shields.io/github/issues/cmorten/opine-cli" alt="Opine CLI issues" /></a>
    <img src="https://img.shields.io/github/stars/cmorten/opine-cli" alt="Opine CLI stars" />
