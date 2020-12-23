@@ -95,15 +95,25 @@
 				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
 					<h2>Installation</h2>
 				</a>
-				<p>TBD</p>
+				<pre><code class="language-console"><span class="hljs-meta">$</span><span class="bash"> deno install -f -q --allow-read=./ --allow-write --unstable ./opine-cli.ts</span></code></pre>
+				<p>And follow any suggestions to update your <code>PATH</code> environment variable.</p>
 				<a href="#quick-start" id="quick-start" style="color: inherit; text-decoration: none;">
 					<h2>Quick Start</h2>
 				</a>
-				<p>TBD</p>
+				<p>The quickest way to get started with Opine is to utilize the Opine CLI to generate an application as shown below:</p>
+				<p>Create the app:</p>
+				<pre><code class="language-console"><span class="hljs-meta">$</span><span class="bash"> opine-cli --view=ejs hello-deno &amp;&amp; hello-deno</span></code></pre>
+				<p>Start your Opine app at <code>http://localhost:3000/</code>:</p>
+				<pre><code class="language-console"><span class="hljs-meta">$</span><span class="bash"> deno run --allow-net --allow-read --allow-env mod.ts</span></code></pre>
 				<a href="#command-line-options" id="command-line-options" style="color: inherit; text-decoration: none;">
 					<h2>Command Line Options</h2>
 				</a>
-				<p>TBD</p>
+				<p>This CLI can be further configured with the following command line flags:</p>
+				<pre><code class="language-txt">-h, --help                      - Show this help.
+-V, --version                   - Show the version number for this program.  
+-v, --view     &lt;engine:string&gt;  - add view &lt;engine&gt; support (ejs|eta)        
+-g, --git                       - add .gitignore                             
+-f, --force                     - force on non-empty directory     </code></pre>
 				<a href="#contributing" id="contributing" style="color: inherit; text-decoration: none;">
 					<h2>Contributing</h2>
 				</a>

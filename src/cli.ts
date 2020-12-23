@@ -203,6 +203,7 @@ function osType(): "darwin" | "linux" | "windows" {
     return Deno.build.os;
   }
 
+  // deno-lint-ignore no-explicit-any
   const navigator = (globalThis as any).navigator;
   if (navigator?.appVersion?.includes?.("Win") ?? false) {
     return "windows";
@@ -230,7 +231,10 @@ function launchedFromCmd(): boolean {
  */
 function loadTemplate(
   name: string,
-): { locals: any; render: () => Promise<string> } {
+): {
+  locals: Record<string, unknown>;
+  render: () => Promise<string>;
+} {
   const file = resolve(TEMPLATE_DIR, `${name}.ejs`);
   const locals = Object.create(null);
 

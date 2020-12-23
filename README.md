@@ -30,15 +30,39 @@
 
 ## Installation
 
-TBD
+```console
+$ deno install -f -q --allow-read=./ --allow-write --unstable ./opine-cli.ts
+```
+
+And follow any suggestions to update your `PATH` environment variable.
 
 ## Quick Start
 
-TBD
+The quickest way to get started with Opine is to utilize the Opine CLI to generate an application as shown below:
+
+Create the app:
+
+```console
+$ opine-cli --view=ejs hello-deno && hello-deno
+```
+
+Start your Opine app at `http://localhost:3000/`:
+
+```console
+$ deno run --allow-net --allow-read --allow-env mod.ts
+```
 
 ## Command Line Options
 
-TBD
+This CLI can be further configured with the following command line flags:
+
+```txt
+-h, --help                      - Show this help.                            
+-V, --version                   - Show the version number for this program.  
+-v, --view     <engine:string>  - add view <engine> support (ejs|eta)        
+-g, --git                       - add .gitignore                             
+-f, --force                     - force on non-empty directory     
+```
 
 ## Contributing
 
