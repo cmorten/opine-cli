@@ -34,5 +34,5 @@ jobs:
       - uses: denolib/setup-deno@v2
         with:
           deno-version: ${{ matrix.deno-version }}
-      - run: make build
+      - run: make install
       - run: make test
