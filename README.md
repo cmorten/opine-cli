@@ -43,7 +43,7 @@ The quickest way to get started with Opine is to utilize the Opine CLI to genera
 Create the app:
 
 ```console
-$ opine-cli --view=ejs hello-deno && hello-deno
+$ opine-cli --view=ejs hello-deno && cd hello-deno
 ```
 
 Start your Opine app at `http://localhost:3000/`:

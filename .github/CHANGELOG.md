@@ -2,7 +2,7 @@
 
 ## [0.1.2] - 24-12-2020
 
-- fix: support remote installation
+- fix: unable to install from remote source
 
 ## [0.1.1] - 23-12-2020
 
@@ -10,4 +10,4 @@
 
 ## [0.1.0] - 23-12-2020
 
-- Initial creation of Opine's application generator.
+- feat: initial creation of Opine's application generator.
