@@ -1,6 +1,8 @@
 import {
   Command,
   Confirm,
+  dirname,
+  fromFileUrl,
   join,
   renderToString,
   resolve,
@@ -10,8 +12,8 @@ import { VERSION } from "../version.ts";
 
 const MODE_0666 = parseInt("0666", 8);
 const MODE_0755 = parseInt("0755", 8);
-const TEMPLATE_DIR = join(import.meta.url, "templates");
-console.log({ url: import.meta.url, TEMPLATE_DIR });
+const TEMPLATE_DIR = getTemplateDirectory();
+console.log({ TEMPLATE_DIR });
 
 const program = await new Command()
   .name("opine-cli")
@@ -64,9 +66,14 @@ async function readRemote(from: string): Promise<string> {
 function read(from: string): string | Promise<string> {
   console.log("read", { from });
 
-  return from.startsWith("http")
-    ? readRemote(from)
-    : Deno.readTextFileSync(from);
+  if (from.startsWith("http:") || from.startsWith("https:")) {
+    console.log("read resolved", { from });
+    return readRemote(from);
+  }
+
+  console.log("read resolved", { from });
+
+  return Deno.readTextFileSync(from);
 }
 
 /**
@@ -331,6 +338,22 @@ function mkdir(base: string, directory: string): void {
  * @private
  */
 function write(file: string, str: string, mode?: number): void {
+  console.log("write", { file });
   Deno.writeTextFileSync(file, str, { mode: mode ?? MODE_0666 });
   console.log(`   \x1b[36mcreate\x1b[0m : ${file}`);
+}
+
+/**
+ * Get the template directory
+ * 
+ * @returns {string}
+ * @private
+ */
+function getTemplateDirectory(): string {
+  let __dirname = dirname(import.meta.url);
+  __dirname = __dirname.startsWith("file:")
+    ? fromFileUrl(__dirname)
+    : __dirname;
+
+  return join(__dirname, "templates");
 }
