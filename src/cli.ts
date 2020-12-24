@@ -279,7 +279,8 @@ function loadTemplate(
   locals: Record<string, unknown>;
   render: () => Promise<string>;
 } {
-  const file = resolve(TEMPLATE_DIR, `${name}.ejs`);
+  const file = join(TEMPLATE_DIR, `${name}.ejs`);
+  console.log("loadTemplate", { file });
   const locals = Object.create(null);
 
   async function render() {
