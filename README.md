@@ -31,7 +31,7 @@
 ## Installation
 
 ```console
-$ deno install -f -q --allow-read --allow-write --allow-net --unstable https://deno.land/x/opinecli@0.1.2/opine-cli.ts
+$ deno install -f -q --allow-read --allow-write --allow-net --unstable https://deno.land/x/opinecli@1.0.0/opine-cli.ts
 ```
 
 And follow any suggestions to update your `PATH` environment variable.

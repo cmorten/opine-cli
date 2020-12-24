@@ -1,7 +1,7 @@
 {
   "name": "opinecli",
   "description": "Opine's application generator.",
-  "version": "0.1.2",
+  "version": "1.0.0",
   "repository": "https://github.com/cmorten/opine-cli",
   "stable": true,
   "entry": "./opine-cli.ts",

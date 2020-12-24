@@ -1,7 +1,7 @@
 /**
  * Version of Opine CLI.
  */
-export const VERSION = "0.1.2";
+export const VERSION = "1.0.0";
 
 /**
  * Supported version of Deno.
