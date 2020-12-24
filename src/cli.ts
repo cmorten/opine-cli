@@ -5,7 +5,6 @@ import {
   fromFileUrl,
   join,
   renderToString,
-  resolve,
   sep,
 } from "../deps.ts";
 import { VERSION } from "../version.ts";

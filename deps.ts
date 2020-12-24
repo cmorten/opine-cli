@@ -2,7 +2,6 @@ export {
   dirname,
   fromFileUrl,
   join,
-  resolve,
   sep,
 } from "https://deno.land/std@0.82.0/path/mod.ts";
 export { Command } from "https://deno.land/x/cliffy@v0.16.0/command/mod.ts";
