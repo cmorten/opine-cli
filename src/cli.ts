@@ -2,8 +2,7 @@ import {
   Command,
   Confirm,
   join,
-  minimatch,
-  renderFileToString,
+  renderToString,
   resolve,
   sep,
 } from "../deps.ts";
@@ -43,34 +42,58 @@ async function confirm(message: string): Promise<boolean> {
 }
 
 /**
+ * Read a remote file.
+ * 
+ * @param {string} from 
+ * @returns {Promise<string>}
+ * @private
+ */
+async function readRemote(from: string): Promise<string> {
+  const response = await fetch(from);
+
+  return await response.text();
+}
+
+/**
+ * Reads a file.
+ * 
+ * @param {string} from 
+ * @returns {string|Promise<string>}
+ * @private
+ */
+function read(from: string): string | Promise<string> {
+  return from.startsWith("http")
+    ? readRemote(from)
+    : Deno.readTextFileSync(from);
+}
+
+/**
  * Copy file from template directory.
  *
  * @param {string} from 
  * @param {string} to
  * @private
  */
-function copyTemplate(from: string, to: string): void {
-  write(to, Deno.readTextFileSync(join(TEMPLATE_DIR, from)));
+async function copyTemplate(from: string, to: string): Promise<void> {
+  write(to, await read(join(TEMPLATE_DIR, from)));
 }
 
 /**
  * Copy multiple files from template directory.
  * 
- * @param {string} fromDir 
- * @param {string} toDir 
+ * @param {string} fromDir
+ * @param {string} toDir
  * @param {string} nameGlob
  * @private
  */
 function copyTemplateMulti(
   fromDir: string,
   toDir: string,
-  nameGlob: string,
+  files: string[],
 ): void {
-  [...Deno.readDirSync(join(TEMPLATE_DIR, fromDir))]
-    .map(({ name }) => name)
-    .filter(minimatch.filter(nameGlob, { matchBase: true }))
-    .forEach((name) => {
-      copyTemplate(join(fromDir, name), join(toDir, name));
+  files
+    .forEach(async (file) => {
+      await copyTemplate(join(fromDir, file), join(toDir, file));
     });
 }
 
@@ -98,11 +121,15 @@ async function createApplication(
   mkdir(directory, "public/images");
   mkdir(directory, "public/css");
 
-  copyTemplateMulti("css", `${directory}/public/css`, "*.css");
-  copyTemplateMulti("js", `${directory}`, "*.ts");
+  copyTemplateMulti("css", `${directory}/public/css`, ["style.css"]);
+  copyTemplateMulti("js", `${directory}`, ["mod.ts"]);
 
   mkdir(directory, "routes");
-  copyTemplateMulti("js/routes", `${directory}/routes`, "*.ts");
+  copyTemplateMulti(
+    "js/routes",
+    `${directory}/routes`,
+    ["index.ts", "users.ts"],
+  );
 
   let flags = "--allow-net --allow-read --allow-env";
 
@@ -122,7 +149,11 @@ async function createApplication(
 
         flags += " --unstable";
 
-        copyTemplateMulti("views", `${directory}/views`, "*.eta");
+        copyTemplateMulti(
+          "views",
+          `${directory}/views`,
+          ["error.eta", "index.eta"],
+        );
 
         break;
       }
@@ -137,7 +168,11 @@ async function createApplication(
             `export { renderFileToString } from "https://deno.land/x/dejs@0.9.3/mod.ts";`,
         };
 
-        copyTemplateMulti("views", `${directory}/views`, "*.ejs");
+        copyTemplateMulti(
+          "views",
+          `${directory}/views`,
+          ["error.ejs", "index.ejs"],
+        );
 
         break;
       }
@@ -145,11 +180,11 @@ async function createApplication(
   } else {
     app.locals.view = false;
     deps.locals.view = false;
-    copyTemplate("js/index.html", join(directory, "public/index.html"));
+    await copyTemplate("js/index.html", join(directory, "public/index.html"));
   }
 
   if (program.options.git) {
-    copyTemplate("js/gitignore", join(directory, ".gitignore"));
+    await copyTemplate("js/gitignore", join(directory, ".gitignore"));
   }
 
   write(join(directory, "app.ts"), await app.render());
@@ -236,8 +271,10 @@ function loadTemplate(
   const file = resolve(TEMPLATE_DIR, `${name}.ejs`);
   const locals = Object.create(null);
 
-  function render() {
-    return renderFileToString(file, locals);
+  async function render() {
+    const contents = await read(file);
+
+    return renderToString(contents, locals);
   }
 
   return {
