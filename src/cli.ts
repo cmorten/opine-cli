@@ -10,9 +10,8 @@ import { VERSION } from "../version.ts";
 
 const MODE_0666 = parseInt("0666", 8);
 const MODE_0755 = parseInt("0755", 8);
-const __dirname = new URL(".", import.meta.url).pathname;
-const TEMPLATE_DIR = join(__dirname, "templates");
-console.log({ url: import.meta.url, __dirname, TEMPLATE_DIR });
+const TEMPLATE_DIR = join(import.meta.url, "templates");
+console.log({ url: import.meta.url, TEMPLATE_DIR });
 
 const program = await new Command()
   .name("opine-cli")
