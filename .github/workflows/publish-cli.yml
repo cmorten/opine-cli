@@ -5,21 +5,44 @@ on:
     branches: [main]
 
 jobs:
-  publish-cli:
-    strategy:
-      matrix:
-        os: [ubuntu, macos, windows]
-
-    runs-on: ${{ matrix.os }}-latest
-
+  publish-cli-macos:
+    runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
       - uses: denolib/setup-deno@v2
         with:
           deno-version: 1.6.3
-      - run: mkdir -p ./bin/${{ matrix.os }}/
-      - run: make compile-${{ matrix.os }}
+      - run: mkdir -p ./bin/macos/
+      - run: make compile-macos
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: publish cli
+          commit_message: publish macos cli
+          push_options: --force
+
+  publish-cli-ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: denolib/setup-deno@v2
+        with:
+          deno-version: 1.6.3
+      - run: mkdir -p ./bin/ubuntu/
+      - run: make compile-ubuntu
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: publish ubuntu cli
+          push_options: --force
+
+  publish-cli-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: denolib/setup-deno@v2
+        with:
+          deno-version: 1.6.3
+      - run: mkdir -p ./bin/windows/
+      - run: make compile-windows
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: publish windows cli
           push_options: --force
