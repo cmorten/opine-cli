@@ -18,7 +18,7 @@ compile-windows:
 	@deno compile --unstable ./opine-cli.ts --output ./bin/windows/opine-cli
 
 deps:
-	@npm install -g typescript typedoc
+	@npm install -g typescript typedoc@0.19.2
 
 doc:
 	@deno doc ./opine-cli.ts
