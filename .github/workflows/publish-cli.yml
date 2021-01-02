@@ -13,6 +13,7 @@ jobs:
         with:
           deno-version: 1.6.3
       - run: mkdir -p ./bin/macos/
+        shell: bash
       - run: make compile-macos
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
@@ -28,6 +29,7 @@ jobs:
         with:
           deno-version: 1.6.3
       - run: mkdir -p ./bin/ubuntu/
+        shell: bash
       - run: make compile-ubuntu
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
@@ -43,6 +45,7 @@ jobs:
         with:
           deno-version: 1.6.3
       - run: mkdir -p ./bin/windows/
+        shell: bash
       - run: make compile-windows
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
