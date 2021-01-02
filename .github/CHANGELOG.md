@@ -1,5 +1,12 @@
 # ChangeLog
 
+## [1.0.1] - 02-01-2020
+
+- feat: support Deno 1.6.3
+- feat: upgrade std to 0.83.0
+- feat: upgrade opine to 1.0.2
+- ci: add publish-ci workflow for generating compiled bundles
+
 ## [1.0.0] - 24-12-2020
 
 - feat: stable v1 release

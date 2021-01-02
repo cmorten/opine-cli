@@ -1,4 +1,4 @@
-.PHONY: ci deps doc fmt fmt-check install lint test typedoc
+.PHONY: ci compile deps doc fmt fmt-check install lint test typedoc
 
 FILES_TO_FORMAT = ./src ./test deps.ts opine-cli.ts version.ts
 
@@ -7,6 +7,15 @@ ci:
 	@make lint
 	@make install
 	@make test
+
+compile-macos:
+	@deno compile --unstable ./opine-cli.ts --output ./bin/macos/opine-cli
+
+compile-ubuntu:
+	@deno compile --unstable ./opine-cli.ts --output ./bin/ubuntu/opine-cli
+
+compile-windows:
+	@deno compile --unstable ./opine-cli.ts --output ./bin/windows/opine-cli
 
 deps:
 	@npm install -g typescript typedoc
