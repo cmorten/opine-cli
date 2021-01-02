@@ -1,5 +1,9 @@
 # ChangeLog
 
+## [1.0.2] - 02-01-2020
+
+- ci: remove publish-ci workflow
+
 ## [1.0.1] - 02-01-2020
 
 - feat: support Deno 1.6.3
