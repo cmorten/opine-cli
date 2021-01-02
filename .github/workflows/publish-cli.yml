@@ -17,7 +17,7 @@ jobs:
       - uses: denolib/setup-deno@v2
         with:
           deno-version: 1.6.3
-      - run: mkdirp ./bin/${{ matrix.os }}/
+      - run: mkdir -p ./bin/${{ matrix.os }}/
       - run: make compile-${{ matrix.os }}
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
