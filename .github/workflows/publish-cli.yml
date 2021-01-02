@@ -1,4 +1,4 @@
-name: Publish TypeDocs
+name: Publish CLI
 
 on:
   push:
