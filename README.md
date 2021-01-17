@@ -14,7 +14,7 @@
    <img src="https://img.shields.io/github/forks/cmorten/opine-cli" alt="Opine CLI forks" />
    <img src="https://img.shields.io/github/license/cmorten/opine-cli" alt="Opine CLI license" />
    <a href="https://github.com/cmorten/opine-cli/graphs/commit-activity"><img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" alt="Opine CLI is maintained" /></a>
-   <a href="http://hits.dwyl.com/cmorten/opine-cli"><img src="http://hits.dwyl.com/cmorten/opine.svg" alt="Opine CLI repository visit count" /></a>
+   <a href="http://hits.dwyl.com/cmorten/opine-cli"><img src="http://hits.dwyl.com/cmorten/opine-cli.svg" alt="Opine CLI repository visit count" /></a>
    <a href="https://nest.land/package/opinecli"><img src="https://nest.land/badge.svg" alt="Published on nest.land" /></a>
 </p>
 
