@@ -17,6 +17,12 @@
    <a href="http://hits.dwyl.com/cmorten/opine-cli"><img src="http://hits.dwyl.com/cmorten/opine-cli.svg" alt="Opine CLI repository visit count" /></a>
    <a href="https://nest.land/package/opinecli"><img src="https://nest.land/badge.svg" alt="Published on nest.land" /></a>
 </p>
+<p align="center">
+   <a href="https://deno.land/x/opinecli"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fdeno-visualizer.danopia.net%2Fshields%2Flatest-version%2Fx%2Fopinecli%2Fmod.ts" alt="opine-cli latest /x/ version" /></a>
+   <a href="https://deno-visualizer.danopia.net/dependencies-of/https/deno.land/x/opinecli/mod.ts"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fdeno-visualizer.danopia.net%2Fshields%2Fdep-count%2Fx%2Fopinecli%2Fmod.ts" alt="opine-cli dependency count" /></a>
+   <a href="https://deno-visualizer.danopia.net/dependencies-of/https/deno.land/x/opinecli/mod.ts"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fdeno-visualizer.danopia.net%2Fshields%2Fupdates%2Fx%2Fopinecli%2Fmod.ts" alt="opine-cli dependency outdatedness" /></a>
+   <a href="https://deno-visualizer.danopia.net/dependencies-of/https/deno.land/x/opinecli/mod.ts"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fdeno-visualizer.danopia.net%2Fshields%2Fcache-size%2Fx%2Fopinecli%2Fmod.ts" alt="opine-cli cached size" /></a>
+</p>
 
 ---
 
@@ -31,7 +37,7 @@
 ## Installation
 
 ```console
-$ deno install -f -q --allow-read --allow-write --allow-net --unstable https://deno.land/x/opinecli@1.0.2/opine-cli.ts
+$ deno install -f -q --allow-read --allow-write --allow-net --unstable https://deno.land/x/opinecli@1.1.0/opine-cli.ts
 ```
 
 And follow any suggestions to update your `PATH` environment variable.
