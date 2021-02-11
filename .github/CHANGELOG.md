@@ -4,7 +4,7 @@
 
 - feat: support Deno 1.7.2
 - feat: upgrade std to 0.86.0
-- feat: upgrade opine to 1.1.2 
+- feat: upgrade opine to 1.1.0
 
 ## [1.0.2] - 02-01-2020
 
