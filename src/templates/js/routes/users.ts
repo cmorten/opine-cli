@@ -3,7 +3,7 @@ import { Router } from "../deps.ts";
 const router = Router();
 
 // GET users listing.
-router.get("/", (req, res, next) => {
+router.get("/", (_req, res, _next) => {
   res.send("Users are coming shortly!");
 });
 
