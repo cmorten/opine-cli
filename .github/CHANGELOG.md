@@ -1,5 +1,11 @@
 # ChangeLog
 
+## [1.3.0] - 25-05-2021
+
+- feat: support Deno 1.11.2
+- feat: upgrade std to 0.99.0
+- feat: upgrade opine to 1.5.3
+
 ## [1.2.0] - 02-05-2021
 
 - feat: support Deno 1.9.2

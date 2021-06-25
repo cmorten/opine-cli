@@ -30,7 +30,7 @@ main();
 
 /**
  * Prompt for confirmation on STDOUT / STDIN
- * 
+ *
  * @param {string} msg
  * @returns {Promise<boolean>}
  * @private
@@ -43,8 +43,8 @@ async function confirm(message: string): Promise<boolean> {
 
 /**
  * Read a remote file.
- * 
- * @param {string} from 
+ *
+ * @param {string} from
  * @returns {Promise<string>}
  * @private
  */
@@ -56,8 +56,8 @@ async function readRemote(from: string): Promise<string> {
 
 /**
  * Reads a file.
- * 
- * @param {string} from 
+ *
+ * @param {string} from
  * @returns {string|Promise<string>}
  * @private
  */
@@ -72,7 +72,7 @@ function read(from: string): string | Promise<string> {
 /**
  * Copy file from template directory.
  *
- * @param {string} from 
+ * @param {string} from
  * @param {string} to
  * @private
  */
@@ -82,7 +82,7 @@ async function copyTemplate(from: string, to: string): Promise<void> {
 
 /**
  * Copy multiple files from template directory.
- * 
+ *
  * @param {string} fromDir
  * @param {string} toDir
  * @param {string} nameGlob
@@ -146,7 +146,7 @@ async function createApplication(
         };
         deps.locals.view = {
           render:
-            `export { renderFile } from "https://deno.land/x/eta@v1.12.1/mod.ts";`,
+            `export { renderFile } from "https://deno.land/x/eta@v1.12.2/mod.ts";`,
         };
 
         flags += " --unstable";
@@ -229,7 +229,7 @@ function emptyDirectory(directory: string): boolean {
 
 /**
  * Determine the OS type.
- * 
+ *
  * @returns {string}
  * @private
  */
@@ -249,7 +249,7 @@ function osType(): "darwin" | "linux" | "windows" {
 
 /**
  * Determine if launched from cmd.exe
- * 
+ *
  * @returns {boolean}
  * @private
  */
@@ -259,7 +259,7 @@ function launchedFromCmd(): boolean {
 
 /**
  * Load template file.
- * 
+ *
  * @param {string} name
  * @returns {object}
  * @private
@@ -335,7 +335,7 @@ function write(file: string, str: string, mode?: number): void {
 
 /**
  * Get the template directory
- * 
+ *
  * @returns {string}
  * @private
  */
