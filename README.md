@@ -18,7 +18,7 @@
 </p>
 <p align="center">
    <a href="https://deno.land/x/opinecli"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fdeno-visualizer.danopia.net%2Fshields%2Flatest-version%2Fx%2Fopinecli%2Fopine-cli.ts" alt="opine-cli latest /x/ version" /></a>
-   <a href="https://github.com/denoland/deno/blob/main/Releases.md"><img src="https://img.shields.io/badge/deno-^1.11.2-brightgreen?logo=deno" alt="Minimum supported Deno version" /></a>
+   <a href="https://github.com/denoland/deno/blob/main/Releases.md"><img src="https://img.shields.io/badge/deno-^1.17.1-brightgreen?logo=deno" alt="Minimum supported Deno version" /></a>
    <a href="https://deno-visualizer.danopia.net/dependencies-of/https/deno.land/x/opinecli/opine-cli.ts"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fdeno-visualizer.danopia.net%2Fshields%2Fdep-count%2Fx%2Fopinecli%2Fopine-cli.ts" alt="opine-cli dependency count" /></a>
    <a href="https://deno-visualizer.danopia.net/dependencies-of/https/deno.land/x/opinecli/opine-cli.ts"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fdeno-visualizer.danopia.net%2Fshields%2Fupdates%2Fx%2Fopinecli%2Fopine-cli.ts" alt="opine-cli dependency outdatedness" /></a>
    <a href="https://deno-visualizer.danopia.net/dependencies-of/https/deno.land/x/opinecli/opine-cli.ts"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fdeno-visualizer.danopia.net%2Fshields%2Fcache-size%2Fx%2Fopinecli%2Fopine-cli.ts" alt="opine-cli cached size" /></a>
@@ -37,7 +37,7 @@
 ## Installation
 
 ```console
-$ deno install -f -q --allow-read --allow-write --allow-net --unstable https://deno.land/x/opinecli@1.3.0/opine-cli.ts
+$ deno install -f -q --allow-read --allow-write --allow-net --unstable https://deno.land/x/opinecli@2.0.0/opine-cli.ts
 ```
 
 And follow any suggestions to update your `PATH` environment variable.

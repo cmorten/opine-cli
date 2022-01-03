@@ -1,5 +1,11 @@
 # ChangeLog
 
+## [2.0.0] - 03-01-2022
+
+- feat: support Deno 1.17.1
+- feat: upgrade std to 0.119.0
+- feat: make generated dependencies use latest version
+
 ## [1.3.0] - 25-05-2021
 
 - feat: support Deno 1.11.2

@@ -140,13 +140,16 @@ async function createApplication(
 
     switch (program.options.view) {
       case "eta": {
+        const etaVersion = await getLatestVersion(
+          "https://deno.land/x/eta/mod.ts",
+        );
         app.locals.view = {
           engine: "eta",
           render: "renderFile",
         };
         deps.locals.view = {
           render:
-            `export { renderFile } from "https://deno.land/x/eta@v1.12.2/mod.ts";`,
+            `export { renderFile } from "https://deno.land/x/eta${etaVersion}/mod.ts";`,
         };
 
         flags += " --unstable";
@@ -161,13 +164,16 @@ async function createApplication(
       }
       case "ejs":
       default: {
+        const ejsVersion = await getLatestVersion(
+          "https://deno.land/x/dejs/mod.ts",
+        );
         app.locals.view = {
           engine: "ejs",
           render: "renderFileToString",
         };
         deps.locals.view = {
           render:
-            `export { renderFileToString } from "https://deno.land/x/dejs@0.9.3/mod.ts";`,
+            `export { renderFileToString } from "https://deno.land/x/dejs${ejsVersion}/mod.ts";`,
         };
 
         copyTemplateMulti(
@@ -188,6 +194,13 @@ async function createApplication(
   if (program.options.git) {
     await copyTemplate("js/gitignore", join(directory, ".gitignore"));
   }
+
+  deps.locals.opineVersion = await getLatestVersion(
+    "https://deno.land/x/opine/mod.ts",
+  );
+  deps.locals.stdVersion = await getLatestVersion(
+    "https://deno.land/std/version.ts",
+  );
 
   write(join(directory, "app.ts"), await app.render());
   write(join(directory, "deps.ts"), await deps.render());
@@ -346,4 +359,12 @@ function getTemplateDirectory(): string {
     : __dirname;
 
   return join(__dirname, "templates");
+}
+
+async function getLatestVersion(moduleUrl: string): Promise<string> {
+  const res = await fetch(moduleUrl);
+
+  await res.text();
+
+  return res.url.match(/\/.*(@.*)\//)?.[1] ?? "";
 }
